@@ -33,7 +33,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'localhost:3000（cloud9だったら自分のcloud9のホスト名）' }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :letter_opener
 
   # Print deprecation notices to the Rails logger.
