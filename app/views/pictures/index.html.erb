@@ -3,7 +3,7 @@
         <div class="col-md-6">
         <div class="thumbnail">
           <% post_user = picture.user %>
-          <h4 class="text-right">投稿者:<span class="glyphicon glyphicon-user"></span><%= post_user.try(:name) %></h4>
+          <h4 class="text-right">投稿者:<%= post_user.try(:name) %></h4>
           <hr>
           <%= image_tag(picture.image) %>
           <div class="caption">
