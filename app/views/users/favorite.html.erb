@@ -1,0 +1,17 @@
+<div class="row">
+  <h2>お気に入り一覧</h2>
+  <% @favorites_pictures.each do |favorite| %>
+      <div class="col-md-6">
+      <div class="thumbnail">
+        <h4 class="text-right"><span class="glyphicon glyphicon-user"></span>:<%= favorite.user.name %></h4>
+        <hr>
+        <%= image_tag(favorite.image) %>
+        <div class="caption">
+          <hr>
+          <h4><%= favorite.title %></h4>
+          <p><%= favorite.content %></p>
+        </div>
+      </div>
+      </div>
+  <% end %>
+</div>

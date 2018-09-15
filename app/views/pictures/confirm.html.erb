@@ -3,17 +3,17 @@
 <%= form_with(model: @picture,url: pictures_path,local: true) do |form| %>
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
-  <%= form.hidden_field :image %>
+  <%= form.hidden_field :image_cache %>
 
+  <p><%= image_tag(@picture.image) %></p>
   <p>タイトル:<%= @picture.title %></p>
   <p>本文:<%= @picture.content %></p>
-  <p>画像:<%= @picture.image %></p>
-  <%= form.submit "登録する" %>
+  <%= form.submit "投稿する",:class=>"btn btn-primary" %>
   <% end %>
 
 <%= form_with(model: @picture,url:new_picture_path,local: true,method: 'get') do |form| %>
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
-  <%= form.hidden_field :image %>
-  <%= form.submit "戻る", name: 'back' %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "戻る", name: 'back',:class=>"btn btn-default" %>
 <% end %>

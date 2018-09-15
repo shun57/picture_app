@@ -11,22 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :picture_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: :picture_content %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :image %>
-    <%= form.text_area :image, id: :picture_image %>
+    <%= image_tag(@picture.image.url) if @picture.image.url %>
+    <%= form.file_field :image ,id: :picture_image %>
+  </div>
+  <div class="form-group">
+    <%= form.text_field :title, id: :picture_title, class:"form-control", placeholder:"Title" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.text_area :content, id: :picture_content, class:"form-control", placeholder:"Content" %>
   </div>
+  <div class="actions">
+    <%= form.submit "Snap!!", :class=>"btn btn-success" %>
+  </div>
+
 <% end %>

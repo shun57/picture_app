@@ -16,7 +16,7 @@ class PicturesController < ApplicationController
   # GET /pictures/new
   def new
     if params[:back]
-    @picture = Picture.new(blog_params)
+    @picture = Picture.new(picture_params)
     else
     @picture = Picture.new
     end
@@ -82,6 +82,6 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:title, :content, :image)
+      params.require(:picture).permit(:title, :content, :image, :image_cache)
     end
 end
