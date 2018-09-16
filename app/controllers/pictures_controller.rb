@@ -1,19 +1,15 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
-  # GET /pictures
-  # GET /pictures.json
+
   def index
     @pictures = Picture.all
     @picture = current_user.id
   end
 
-  # GET /pictures/1
-  # GET /pictures/1.json
   def show
     @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
 
-  # GET /pictures/new
   def new
     if params[:back]
     @picture = Picture.new(picture_params)
@@ -22,12 +18,9 @@ class PicturesController < ApplicationController
     end
   end
 
-  # GET /pictures/1/edit
   def edit
   end
 
-  # POST /pictures
-  # POST /pictures.json
   def create
     @picture = Picture.new(picture_params)
     @picture.user_id = current_user.id
@@ -58,8 +51,6 @@ class PicturesController < ApplicationController
     end
   end
 
-  # DELETE /pictures/1
-  # DELETE /pictures/1.json
   def destroy
     @picture.destroy
     respond_to do |format|
@@ -75,13 +66,12 @@ class PicturesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_picture
-      @picture = Picture.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def picture_params
-      params.require(:picture).permit(:title, :content, :image, :image_cache)
-    end
+  def set_picture
+    @picture = Picture.find(params[:id])
+  end
+
+  def picture_params
+    params.require(:picture).permit(:title, :content, :image, :image_cache)
+  end
 end
